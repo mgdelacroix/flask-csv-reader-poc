@@ -1,12 +1,11 @@
 from flask import Flask
+from flask import render_template
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    reader = open('fichero.txt')
-    for row in reader:
-        print(row, end='')
-    return "Reading fichero.txt file"
+    contenido = open('fichero.txt').readline()
+    return "Reading fichero.txt file: %s" % contenido
 
 if __name__ == "__main__":
     app.run()
