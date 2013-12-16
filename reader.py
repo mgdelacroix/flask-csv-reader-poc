@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     contenido = open('fichero.txt').readline()
-    return "Reading fichero.txt file: %s" % contenido
+    return render_template('index.html', contenido=contenido)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
